@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Liste de Chiens</th>
+            </tr>
+        </thead>
+    <tr> <th>Id</th><th>Nom</th> <th>Prix</th> <th>Date Naissance</th><th>Race</th><th>Image</th> </tr>
+    <tbody *ngFor="let chien of chiens">
+    <tr >
+    <td>{{chien.idChien}}</td>
+    <td>{{chien.nomChien}}</td>
+    <td>{{chien.prixChien}}</td>
+    <td>{{chien.dateNaissance | date:'dd/MM/yyyy'}}</td>
+    <td>{{chien.race.nomRc}}</td>
+    <td><img class="card-img-top img-responsive"
+        src="{{apiurl+'/image/loadfromFS/'+chien.idChien}}"
+        style = "height :50px;width:100px">
+        </td>
+
+    <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateChien',chien.idChien]">Modifier</a></td>
+    <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerChien(chien)">Supprimer</a></td>
+</tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

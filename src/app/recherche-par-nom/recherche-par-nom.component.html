@@ -1,0 +1,35 @@
+<div class="container">
+
+
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+            <label><h4>Nom Chien en tapant</h4></label>
+            <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+        </div>
+    </form>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Date Naissance</th>
+                        <th>Race</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let chien of chiens">
+                    <tr>
+                        <td>{{chien.idChien}}</td>
+                        <td>{{chien.nomChien}}</td>
+                        <td>{{chien.prixChien}}</td>
+                        <td>{{chien.dateNaissance | date:'dd/MM/yyyy'}}</td>
+                        <td>{{chien.race.nomRc}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

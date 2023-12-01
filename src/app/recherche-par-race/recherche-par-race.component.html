@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Race</label>
+        <select class="form-control form-control-lg" id="idRc" name="idRc" [(ngModel)]="IdRace" (change)="onChange()">
+            <option *ngFor="let rc of races" [value]="rc.idRc">
+                {{ rc.nomRc }}
+            </option>
+        </select>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Date Naissance</th>
+                        <th>Race</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let chien of chiens">
+                        <td>{{ chien.idChien }}</td>
+                        <td>{{ chien.nomChien }}</td>
+                        <td>{{ chien.prixChien }}</td>
+                        <td>{{ chien.dateNaissance | date:'dd/MM/yyyy' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

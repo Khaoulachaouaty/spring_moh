@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <app-update-race [race]="updatedRc" 
+                        (raceUpdated)= "raceUpdated($event)"
+                        [ajout]="ajout">
+    </app-update-race>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom Race</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let rc of races">
+                    <tr>
+                        <td>{{rc.idRc}}</td>
+                        <td>{{rc.nomRc}}</td>
+                        <td><a class="btn btn-success" (click)="updateRc(rc)">Editer</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
